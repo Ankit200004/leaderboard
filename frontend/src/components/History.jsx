@@ -6,7 +6,7 @@ export default function History() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/users/history")
+      .get("https://leaderboard-backend-za6x.onrender.com/api/users/history")
       .then((res) => setHistory(res.data));
   }, []);
 

@@ -59,11 +59,15 @@ export const claimPoints = async (req, res) => {
 
     await history.save();
 
+    console.log(`✅ Claimed ${points} points for ${user.name} (${user._id})`);
+
     res.json({ user, pointsClaimed: points });
   } catch (err) {
+    console.error("❌ Claim error:", err);
     res.status(500).json({ error: "Failed to claim points." });
   }
 };
+
 
 // Get history of point claims
 export const getHistory = async (req, res) => {

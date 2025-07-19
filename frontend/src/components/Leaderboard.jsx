@@ -6,14 +6,16 @@ export default function Leaderboard({ refresh, setRefresh }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/users/leaderboard")
+      .get(
+        "https://leaderboard-backend-za6x.onrender.com/api/users/leaderboard"
+      )
       .then((res) => setLeaders(res.data));
   }, [refresh]);
 
   const handleClaim = async (userId) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/users/claim/${userId}`
+        `https://leaderboard-backend-za6x.onrender.com/api/users/claim/${userId}`
       );
       console.log("Claim response:", response.data);
 
